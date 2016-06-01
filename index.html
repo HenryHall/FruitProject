@@ -18,9 +18,8 @@
               <div id='market'>
                 <div id='apples'>
                   <h3>Apples</h3>
-                  <p>Quantity: 5</p>
                   <p>Current Price: $5.99</p>
-                  <button class="buyFruit" value="apples">Buy</button><button>Sell</button>
+                  <button class="buyFruit" value="apples">Buy</button><button class="sellFruit" value="apples">Sell</button>
                 </div>
 
               </div>
@@ -30,9 +29,8 @@
 
               <div id='bananas'>
                 <h3>Bananas</h3>
-                <p>Quantity: 5</p>
                 <p>Current Price: $5.99</p>
-                <button class="buyFruit" value="bananas">Buy</button><button>Sell</button>
+                <button class="buyFruit" value="bananas">Buy</button><button class="sellFruit" value="bananas">Sell</button>
               </div>
             </div>
 
@@ -40,9 +38,8 @@
 
               <div id='oranges'>
                 <h3>Oranges</h3>
-                <p>Quantity: 5</p>
                 <p>Current Price: $5.99</p>
-                <button class="buyFruit" value="oranges">Buy</button><button>Sell</button>
+                <button class="buyFruit" value="oranges">Buy</button><button class="sellFruit" value="oranges">Sell</button>
               </div>
             </div>
 
@@ -50,9 +47,8 @@
 
               <div id='grapes'>
                 <h3>Grapes</h3>
-                <p>Quantity: 5</p>
                 <p>Current Price: $5.99</p>
-                <button class="buyFruit" value="grapes">Buy</button><button>Sell</button>
+                <button class="buyFruit" value="grapes">Buy</button><button class="sellFruit" value="grapes">Sell</button>
               </div>
             </div>
           </div>
@@ -63,8 +59,36 @@
               <h1>5:00</h1>
             </div>
 
+            <table id="user-inventory" class="table table-responsive">
+              <tr>
+                <th>Fruit</th>
+                <th>#</th>
+                <th>Avg. Price</th>
+              </tr>
+              <tr>
+                <td>Apples</td>
+                <td id="applesAmount"></td>
+                <td id="applesAvg"></td>
+              </tr>
+              <tr>
+                <td>Bananas</td>
+                <td id="bananasAmount"></td>
+                <td id="bananasAvg"></td>
+              </tr>
+              <tr>
+                <td>Oranges</td>
+                <td id="orangesAmount"></td>
+                <td id="orangesAvg"></td>
+              </tr>
+              <tr>
+                <td>Grapes</td>
+                <td id="grapesAmount"></td>
+                <td id="grapesAvg"></td>
+              </tr>
+            </table>
+
             <div id='money'>
-              <h2>$100.00</h2>
+              <h2 id="userMoney">$100.00</h2>
             </div>
           </div>
         </div>
