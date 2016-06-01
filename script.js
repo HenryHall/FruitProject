@@ -15,17 +15,25 @@ var venderObject = {
   grapes: 4.5
 }
 
+var secondsElapsed = 0;
+
+function updateClock() {
+  secondsElapsed++;
+  document.getElementById('timer').innerHTML = Math.floor((300 - secondsElapsed)/60) + ":" + (30000 - secondsElapsed)%60
+}
 
 
 $(document).ready(function() {
   var time = function() {
     setTimeout(function() {
       time();
+      updateClock();
       console.log('Time!');
-    }, 3000);
+    }, 1000);
   };
 
   time();
+
 
   $('#oranges').click(function(){
     console.log('This works!');
