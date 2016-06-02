@@ -13,15 +13,55 @@ var venderObject = {
   bananas: 4.5,
   oranges: 4.5,
   grapes: 4.5
-}
+};
 
 var secondsElapsed = 0;
 
 function updateClock() {
   secondsElapsed++;
-  document.getElementById('timer').innerHTML = Math.floor((300 - secondsElapsed)/60) + ":" + (30000 - secondsElapsed)%60
+  if ( secondsElapsed % 3 === 0 && secondsElapsed !== 0) {
+    updatePrices();
+  }
+  document.getElementById('timer').innerHTML = Math.floor((300 - secondsElapsed)/60) + ":" + (300 - secondsElapsed)%60
 }
 
+function updatePrices() {
+
+  for (fruit in venderObject) {
+    var priceChange = Math.floor((Math.random() * 50) + 1) / 100;
+    var posNeg = Math.round(Math.random(1, 2));
+    if (posNeg == 1) {
+      priceChange = -priceChange;
+    }
+
+    // console.log(priceChange / 100);
+    var update = venderObject[fruit] += Number(priceChange);
+    venderObject[fruit] = Number(update.toFixed(2));
+    console.log(venderObject[fruit]);
+    }
+    updateDomPrices();
+
+}
+
+function updateDomPrices () {
+  $('#applePrice').text("Current Price: $" + venderObject.apples);
+  $('#bananaPrice').text("Current Price: $" + venderObject.bananas);
+  $('#orangePrice').text("Current Price: $" + venderObject.oranges);
+  $('#grapePrice').text("Current Price: $" + venderObject.grapes);
+}
+
+updateDomPrices();
+// var priceUpdate = function () {
+//   for (var i=0; i < 4; i++) {
+//     console.log(venderObject[i]);
+//     venderObject[i] += Math.floor((Math.random() * 50) + -50) / 100;
+//     console.log(venderObject);
+//   }
+//   $('#applePrice').innerHTML = "Current Price: $" + venderObject.apples;
+//   $('#bananaPrice').innerHTML = "Current Price: $" + venderObject.bananas;
+//   $('#orangePrice').innerHTML = "Current Price: $" + venderObject.oranges;
+//   $('#grapePrice').innerHTML = "Current Price: $" + venderObject.grapes;
+// }
 
 $(document).ready(function() {
   var time = function() {
@@ -34,10 +74,8 @@ $(document).ready(function() {
 
   time();
 
+  // priceUpdate();
 
-  $('#oranges').click(function(){
-    console.log('This works!');
-  });
   $('.buyFruit').click(function() {
 
     fruitType = this.value;
