@@ -19,12 +19,23 @@ var secondsElapsed = 0;
 
 function updateClock() {
   secondsElapsed++;
-  if ( secondsElapsed % 3 === 0 && secondsElapsed !== 0) {
+  if ( secondsElapsed % 15 === 0 && secondsElapsed !== 0) {
     updatePrices();
   }
-  document.getElementById('timer').innerHTML = Math.floor((300 - secondsElapsed)/60) + ":" + (300 - secondsElapsed)%60
+  if (secondsElapsed === 300){
+    endGame();
+  }
+  $('#timer').text("M: " + Math.floor((300 - secondsElapsed)/60) + " S: " + (300 - secondsElapsed)%60)
 }
-
+var endGame = function(){
+  alert("The game is over, but you can't sell your fruit yet :(");
+  // for(fruit in userObject) {
+  //   for( var i =0; i < userObject[fruit][0]; i++){
+  //     userObject.money += venderObject[fruit];
+  //     console.log("selling " + userObject[fruit] + " for " + venderObject[fruit]);
+  //   }
+  // }
+};
 function updatePrices() {
 
   for (fruit in venderObject) {
@@ -51,17 +62,6 @@ function updateDomPrices () {
 }
 
 updateDomPrices();
-// var priceUpdate = function () {
-//   for (var i=0; i < 4; i++) {
-//     console.log(venderObject[i]);
-//     venderObject[i] += Math.floor((Math.random() * 50) + -50) / 100;
-//     console.log(venderObject);
-//   }
-//   $('#applePrice').innerHTML = "Current Price: $" + venderObject.apples;
-//   $('#bananaPrice').innerHTML = "Current Price: $" + venderObject.bananas;
-//   $('#orangePrice').innerHTML = "Current Price: $" + venderObject.oranges;
-//   $('#grapePrice').innerHTML = "Current Price: $" + venderObject.grapes;
-// }
 
 $(document).ready(function() {
   var time = function() {
